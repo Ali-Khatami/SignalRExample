@@ -196,7 +196,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MOD.Web.Element\MOD.Web.Element.csproj">
+    <ProjectReference Include="..\MOD.Web.Element\MOD.Web.Element.csproj">
       <Project>{4621cd60-1955-4b44-bf7c-f669fb7b1b36}</Project>
       <Name>MOD.Web.Element</Name>
     </ProjectReference>
