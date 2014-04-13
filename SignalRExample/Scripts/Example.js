@@ -1,23 +1,28 @@
 ﻿$(function ()
 {
-	// Reference the auto-generated proxy for the hub.  
-	var chat = $.connection.chatHub;
-	// Create a function that the hub can call back to display messages.
-	chat.client.addNewMessageToPage = function (name, message)
+	// this variable
+	window.messageHub = $.connection.messageHub;
+
+	messageHub.client.quoteUpdate = function (quoteData)
 	{
-		// Add the message to the page. 
-		$('#discussion').append('<li><strong>' + htmlEncode(name)
-			+ '</strong>: ' + htmlEncode(message) + '</li>');
+		console.log(quoteData);
 	};
+
 	// Start the connection.
-	$.connection.hub.start().done(function ()
+	$.connection.hub
+	.start()
+	.done(function ()
 	{
-		$('#sendmessage').click(function ()
+		$('#StartStream').click(function ()
 		{
-			// Call the Send method on the hub. 
-			chat.server.send($('#displayname').val(), $('#message').val());
-			// Clear text box and reset focus for next comment. 
-			$('#message').val('').focus();
+			// Call the Send method on the messageHub. 
+			messageHub.server.startQuoteStream();
+		});
+
+		$('#StopStream').click(function ()
+		{
+			// Call the Clear method on the messageHub. 
+			messageHub.server.stopQuoteStream();
 		});
 	});
 });

@@ -20,6 +20,7 @@ namespace SignalRExample
 			bundles.Add(
 				new StyleBundle("~/Content/css/common")
 				.Include(
+					"~/Content/bootstrap.css",
 					"~/Content/bootstrap-theme.css",
 					"~/Content/site.css"
 				)
